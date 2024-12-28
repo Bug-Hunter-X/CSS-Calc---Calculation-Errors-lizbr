@@ -1,0 +1,17 @@
+To fix the `calc()` issue, ensure the parent element has a defined width and that any margins or padding affecting the parent are considered when calculating the child element's dimensions.
+
+For instance, if you're using `calc(100% - 10px)`, make sure the parent element has a specific width (e.g., `width: 500px;`) or inherits a width from its parent. Alternatively, adjust the calculation to account for potential padding or borders on the parent element.  Consider using the `box-sizing` property to control how padding and borders are included in the element's total width and height.
+
+Example of a corrected implementation:
+
+```css
+.parent {
+  width: 500px;
+  box-sizing: border-box; /* Include padding and border in width calculation */
+  padding: 10px;
+}
+
+.child {
+  width: calc(100% - 20px); /* Subtract double padding */
+}
+```
